@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade 7 Digital Literacy | Term 1 Study Hub</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load Google Font: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for clean icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              800: '#1e293b',
+              900: '#0f172a',
+            },
+            teal: {
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+            },
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 3D Flashcard Flip Animation */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    /* Smooth panel transitions */
+    .tab-panel {
+      animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+  <!-- Top Academic Banner & Navigation -->
+  <header class="bg-navy-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <!-- Brand / Course Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-teal-500 flex items-center justify-center text-navy-900 font-extrabold text-xl shadow-md">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Grade 7 • Term 1 Exam Prep</span>
+          <h1 class="text-lg sm:text-xl font-extrabold tracking-tight leading-tight">Digital Literacy Study Hub</h1>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex bg-navy-800 p-1.5 rounded-xl border border-slate-700/80 overflow-x-auto">
+        <button onclick="switchTab('guide')" id="tab-btn-guide" class="nav-btn active flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2 bg-teal-600 text-white shadow">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Study Guide</span>
+        </button>
+        <button onclick="switchTab('flashcards')" id="tab-btn-flashcards" class="nav-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-300 hover:text-white">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Flashcards</span>
+        </button>
+        <button onclick="switchTab('test')" id="tab-btn-test" class="nav-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-300 hover:text-white">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <span>Practice Test</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: STUDY GUIDE                                        -->
+    <!-- ========================================================= -->
+    <section id="panel-guide" class="tab-panel space-y-8">
+      <!-- Friendly Hero Welcome Card -->
+      <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-teal-900 text-white rounded-2xl p-6 sm:p-8 shadow-md relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl">
+          <span class="inline-block px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+            End-of-Term Test Review
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mb-3">Everything You Need to Know for Next Week's Test!</h2>
+          <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-5">
+            Read through all four units below to review what we learned in Term 1. When you feel ready, flip through the <strong>Flashcards</strong> to test your memory and take the <strong>Practice Test</strong> to check your score!
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button onclick="switchTab('flashcards')" class="px-4 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold text-sm transition shadow">
+              Practice with Flashcards <i class="fa-solid fa-arrow-right ml-1"></i>
+            </button>
+            <button onclick="switchTab('test')" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition border border-white/20">
+              Take the 15-Question Quiz
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Unit Jump Pills -->
+      <div class="flex flex-wrap gap-2 items-center">
+        <span class="text-xs font-bold uppercase text-slate-400 mr-1">Jump to Unit:</span>
+        <a href="#unit-1" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-teal-500 hover:text-teal-700 transition shadow-sm">1. Tech Basics</a>
+        <a href="#unit-2" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-teal-500 hover:text-teal-700 transition shadow-sm">2. Tools at Work</a>
+        <a href="#unit-3" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-teal-500 hover:text-teal-700 transition shadow-sm">3. Online Safety</a>
+        <a href="#unit-4" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-teal-500 hover:text-teal-700 transition shadow-sm">4. Videos & Reports</a>
+      </div>
+
+      <!-- UNIT 1 -->
+      <div id="unit-1" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-teal-600 text-white px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold">1</span>
+            <h3 class="text-lg sm:text-xl font-bold">Core Digital Words (Tech Basics)</h3>
+          </div>
+          <i class="fa-solid fa-microchip text-teal-200 text-xl"></i>
+        </div>
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-keyboard text-teal-600"></i> Hardware
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              The physical parts of a computer or phone that you can actually touch with your hands.
+              <span class="block mt-1.5 text-xs font-medium text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">Example: Keyboard, mouse, monitor screen, or a printer.</span>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-window-maximize text-teal-600"></i> Software
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              The apps, games, and programs inside a device that tell the hardware what to do. You cannot touch software.
+              <span class="block mt-1.5 text-xs font-medium text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">Example: Microsoft Word, Google Chrome, CapCut, or Minecraft.</span>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-cloud-arrow-up text-teal-600"></i> Cloud Computing
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Saving and opening your files or apps over the internet instead of keeping them on just one computer's hard drive.
+              <span class="block mt-1.5 text-xs font-medium text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">Example: Saving homework on Google Drive at school and opening it at home.</span>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-network-wired text-teal-600"></i> Network
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Two or more computers or devices connected together (with cables or Wi-Fi) so they can share files, internet, or printers.
+              <span class="block mt-1.5 text-xs font-medium text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">Example: All the computers in our school lab sharing one printer.</span>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-gauge-high text-teal-600"></i> Bandwidth
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Think of bandwidth like the width of a highway. A wider highway lets more cars travel fast—higher bandwidth lets more data move quickly over the internet without lagging!
+              <span class="block mt-1.5 text-xs font-medium text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">Example: High bandwidth lets a whole class watch HD videos without buffering.</span>
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-memory text-teal-600"></i> Hardware Specs & Cybersecurity
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              <strong>Hardware Specs:</strong> How powerful a computer's inside parts are (like its processor "brain" and RAM memory).<br />
+              <strong>Cybersecurity:</strong> The digital locks, passwords, and safety rules that protect computers and private info from hackers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 2 -->
+      <div id="unit-2" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-navy-800 text-white px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-amber-400 text-navy-900 flex items-center justify-center font-bold">2</span>
+            <h3 class="text-lg sm:text-xl font-bold">Digital Tools at Work</h3>
+          </div>
+          <i class="fa-solid fa-briefcase text-amber-400 text-xl"></i>
+        </div>
+        <div class="p-6 space-y-5">
+          <p class="text-sm text-slate-600">
+            Different jobs need special software to get work done faster and with fewer mistakes. Remember these 4 main industries:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl bg-rose-50/70 border border-rose-200">
+              <span class="text-xs font-bold uppercase text-rose-600">Healthcare</span>
+              <h4 class="font-bold text-navy-900 mt-1 mb-1.5">EHR Systems</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                <strong>Electronic Health Records</strong> let doctors and nurses look up a patient's allergies and medical history in seconds instead of hunting for paper folders.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-200">
+              <span class="text-xs font-bold uppercase text-sky-600">Education</span>
+              <h4 class="font-bold text-navy-900 mt-1 mb-1.5">LMS Platforms</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                <strong>Learning Management Systems</strong> (like Google Classroom) let teachers post assignments and students submit homework and check grades from anywhere.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-50/70 border border-amber-200">
+              <span class="text-xs font-bold uppercase text-amber-700">Engineering</span>
+              <h4 class="font-bold text-navy-900 mt-1 mb-1.5">CAD Software</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                <strong>Computer-Aided Design</strong> lets architects and engineers draw detailed 2D and 3D building blueprints on a screen so they can easily fix changes without wasting paper.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200">
+              <span class="text-xs font-bold uppercase text-emerald-700">Finance</span>
+              <h4 class="font-bold text-navy-900 mt-1 mb-1.5">Banking & Spreadsheets</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Encrypted online banking portals and spreadsheet apps help banks and accountants track money safely and calculate totals automatically.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cost-Effectiveness Callout -->
+          <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-3">
+            <i class="fa-solid fa-coins text-amber-500 text-xl mt-0.5"></i>
+            <div>
+              <h4 class="font-bold text-navy-900 text-sm">What Does "Cost-Effective" Mean?</h4>
+              <p class="text-sm text-slate-700 mt-0.5 leading-relaxed">
+                A digital tool is <strong>cost-effective</strong> when it is worth the money because it saves hours of hard work, reduces paper waste, and prevents costly mistakes—even if the software isn't free!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 3 -->
+      <div id="unit-3" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-indigo-600 text-white px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold">3</span>
+            <h3 class="text-lg sm:text-xl font-bold">Being Safe & Smart Online (Digital Citizenship)</h3>
+          </div>
+          <i class="fa-solid fa-shield-halved text-indigo-200 text-xl"></i>
+        </div>
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1">👣 Digital Footprint</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              The permanent trail of posts, photos, comments, and websites you leave behind whenever you go online. Even if you hit "delete," someone may have already saved or screenshotted it!
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1">🎣 Phishing</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Fake emails, texts, or links pretending to be a real company (like a bank or game site) to trick you into typing your password or personal info. <strong>Red flags:</strong> Urgent threats, weird web links, and spelling mistakes.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1">📝 Plagiarism</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Copying someone else's words, schoolwork, or pictures from the internet and pretending you wrote them yourself without giving credit.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-navy-900 text-base mb-1">🚫 Software Piracy & Cyberbullying</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              <strong>Software Piracy:</strong> Illegally copying or downloading paid apps, movies, or games for free.<br />
+              <strong>Cyberbullying:</strong> Using phones, games, or social media to repeatedly tease, threaten, or hurt someone's feelings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 4 -->
+      <div id="unit-4" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-teal-700 text-white px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold">4</span>
+            <h3 class="text-lg sm:text-xl font-bold">Making Videos & Writing Reports</h3>
+          </div>
+          <i class="fa-solid fa-video text-teal-200 text-xl"></i>
+        </div>
+        <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Recording -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-camera text-teal-600"></i> 1. Recording Good Video
+            </h4>
+            <ul class="text-sm text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Landscape Mode:</strong> Always hold the phone sideways for reports.</li>
+              <li><strong>Good Lighting:</strong> Put the light in front of the speaker's face, never behind them.</li>
+              <li><strong>Clear Audio:</strong> Record in a quiet place close to the microphone.</li>
+              <li><strong>Rule of Thirds:</strong> Line up the person neatly with a little space above their head (headroom).</li>
+            </ul>
+          </div>
+          <!-- Editing -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-scissors text-teal-600"></i> 2. Video Editing Words
+            </h4>
+            <ul class="text-sm text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Trimming:</strong> Cutting off awkward pauses or mistakes at the start or end of a clip.</li>
+              <li><strong>Cropping:</strong> Zooming in or adjusting frame edges to cut out distracting background clutter.</li>
+              <li><strong>Timeline:</strong> The track where you line up your video and sound clips in order.</li>
+              <li><strong>Exporting:</strong> Saving your finished project into a playable video file (like an <strong>MP4</strong>).</li>
+            </ul>
+          </div>
+          <!-- Reports -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-file-lines text-teal-600"></i> 3. Interview Reports
+            </h4>
+            <ul class="text-sm text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Qualitative Data:</strong> Information made of people's spoken opinions, ideas, and answers from interviews.</li>
+              <li><strong>Supporting Evidence:</strong> True facts or quotes from your interviews that prove why digital skills help people.</li>
+              <li><strong>Misconceptions:</strong> False myths or wrong beliefs people have about technology that your report corrects.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: KEY TERMS FLASHCARDS                               -->
+    <!-- ========================================================= -->
+    <section id="panel-flashcards" class="tab-panel hidden space-y-6">
+      <!-- Header & Controls -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-extrabold text-navy-900">Key Terms Flashcards</h2>
+          <p class="text-sm text-slate-600 mt-0.5">Click any card to flip it over and see the Grade 7 definition and real-life example.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="px-3.5 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-bold">
+            <i class="fa-solid fa-star text-amber-400 mr-1"></i>
+            Mastered: <span id="mastered-count">0</span> / <span id="total-cards-badge">18</span>
+          </div>
+          <button onclick="shuffleFlashcards()" class="px-4 py-2 rounded-xl bg-navy-800 hover:bg-navy-900 text-white text-sm font-semibold transition flex items-center gap-2 shadow-sm">
+            <i class="fa-solid fa-shuffle"></i> Shuffle
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="flex flex-wrap gap-2" id="category-filters">
+        <button onclick="filterFlashcards('All')" class="filter-chip active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-600 text-white shadow-sm transition">All Terms</button>
+        <button onclick="filterFlashcards('Tech Basics')" class="filter-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 transition">Tech Basics</button>
+        <button onclick="filterFlashcards('Jobs & Tools')" class="filter-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 transition">Jobs & Tools</button>
+        <button onclick="filterFlashcards('Online Safety')" class="filter-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 transition">Online Safety</button>
+        <button onclick="filterFlashcards('Video & Reports')" class="filter-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 transition">Video & Reports</button>
+      </div>
+
+      <!-- 3D Interactive Flashcard Area -->
+      <div class="max-w-2xl mx-auto">
+        <!-- Progress Bar -->
+        <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+          <span id="card-counter">Card 1 of 18</span>
+          <span id="card-category-label" class="text-teal-700">Category: Tech Basics</span>
+        </div>
+        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mb-5">
+          <div id="card-progress-bar" class="h-full bg-teal-500 transition-all duration-300" style="width: 5.5%"></div>
+        </div>
+
+        <!-- Card Container -->
+        <div class="perspective-1000 w-full h-80 sm:h-80 cursor-pointer select-none" onclick="flipCard()">
+          <div id="flashcard-inner" class="transform-style-3d relative w-full h-full">
+            
+            <!-- FRONT OF CARD -->
+            <div class="backface-hidden absolute inset-0 bg-white rounded-3xl border-2 border-slate-200 shadow-lg p-6 sm:p-8 flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span id="fc-front-badge" class="px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-bold uppercase tracking-wider">
+                  Tech Basics
+                </span>
+                <span id="fc-mastered-pill" class="hidden px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">
+                  <i class="fa-solid fa-check mr-1"></i> Mastered
+                </span>
+              </div>
+
+              <div class="text-center my-auto px-2">
+                <h3 id="fc-term" class="text-2xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                  Cloud Computing
+                </h3>
+              </div>
+
+              <div class="text-center text-xs font-semibold text-slate-400 flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-rotate"></i> Click card to flip for definition
+              </div>
+            </div>
+
+            <!-- BACK OF CARD -->
+            <div class="backface-hidden rotate-y-180 absolute inset-0 bg-navy-900 text-white rounded-3xl border-2 border-teal-500 shadow-lg p-6 sm:p-8 flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span id="fc-back-term" class="text-xs font-bold uppercase tracking-wider text-amber-400">
+                  Cloud Computing
+                </span>
+                <span class="text-xs text-slate-400">Definition</span>
+              </div>
+
+              <div class="my-auto space-y-4">
+                <p id="fc-definition" class="text-base sm:text-lg font-medium leading-relaxed text-white">
+                  Saving and opening your files or programs over the internet instead of storing them on just one computer's hard drive.
+                </p>
+                <div class="p-3.5 rounded-xl bg-navy-800 border border-slate-700 text-xs sm:text-sm text-teal-300">
+                  <strong class="text-white">Real-Life Example:</strong>
+                  <span id="fc-example">Saving your essay on Google Drive at school and finishing it at home.</span>
+                </div>
+              </div>
+
+              <div class="text-center text-xs font-semibold text-slate-400">
+                <i class="fa-solid fa-rotate"></i> Click card to flip back
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Navigation & Mastery Controls -->
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+          <button onclick="prevCard()" class="px-5 py-3 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-sm transition flex items-center gap-2 shadow-sm">
+            <i class="fa-solid fa-chevron-left"></i> Previous
+          </button>
+
+          <button onclick="toggleMastered()" id="btn-master-toggle" class="px-5 py-3 rounded-xl bg-emerald-50 border border-emerald-300 hover:bg-emerald-100 text-emerald-800 font-bold text-sm transition flex items-center gap-2">
+            <i class="fa-regular fa-circle-check"></i> Mark as Mastered
+          </button>
+
+          <button onclick="nextCard()" class="px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm transition flex items-center gap-2 shadow-sm">
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: SELF-GRADING PRACTICE TEST                         -->
+    <!-- ========================================================= -->
+    <section id="panel-test" class="tab-panel hidden space-y-6">
+      <!-- Quiz Header -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Self-Grading Exam Simulator</span>
+          <h2 class="text-2xl font-extrabold text-navy-900 mt-0.5">Term 1 Practice Test (15 Questions)</h2>
+          <p class="text-sm text-slate-600 mt-1">Answer all 15 questions below, then click <strong>Submit & Check Score</strong> to see your grade and explanations.</p>
+        </div>
+        <button onclick="resetAndShuffleQuiz()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition flex items-center gap-2 self-start sm:self-center">
+          <i class="fa-solid fa-arrows-rotate"></i> Shuffle & Restart
+        </button>
+      </div>
+
+      <!-- Score Banner (Hidden until submitted) -->
+      <div id="quiz-result-banner" class="hidden rounded-2xl p-6 sm:p-8 text-white shadow-lg bg-gradient-to-r from-navy-900 to-teal-800">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-white/15 text-amber-300 text-xs font-bold uppercase tracking-wider">Test Results</span>
+            <h3 id="quiz-result-title" class="text-2xl sm:text-3xl font-extrabold mt-2">Awesome Job!</h3>
+            <p id="quiz-result-message" class="text-slate-200 text-sm sm:text-base mt-1">You scored 13 out of 15! Scroll down to review any questions you missed.</p>
+          </div>
+          <div class="flex items-center gap-4 bg-white/10 px-6 py-4 rounded-2xl border border-white/15">
+            <div class="text-center">
+              <div id="quiz-score-percent" class="text-3xl sm:text-4xl font-extrabold text-amber-400">87%</div>
+              <div id="quiz-score-fraction" class="text-xs font-semibold text-slate-300 mt-0.5">13 / 15 Correct</div>
+            </div>
+            <button onclick="resetAndShuffleQuiz()" class="px-4 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold text-sm transition">
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning Box if user submits without answering all questions -->
+      <div id="quiz-warning" class="hidden p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-sm font-semibold flex items-center gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-amber-500 text-lg"></i>
+        <span id="quiz-warning-text">Please answer all 15 questions before submitting your test!</span>
+      </div>
+
+      <!-- Questions List Container -->
+      <div id="quiz-questions-container" class="space-y-5">
+        <!-- Populated dynamically by JavaScript -->
+      </div>
+
+      <!-- Submit Button Footer -->
+      <div id="quiz-submit-area" class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-slate-600 font-medium">
+          Answered: <span id="quiz-answered-count" class="font-bold text-navy-900">0</span> of 15 questions
+        </div>
+        <button onclick="submitQuiz()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-base transition shadow-md flex items-center justify-center gap-2">
+          <i class="fa-solid fa-check-double"></i> Submit & Check Score
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <p class="font-semibold text-slate-700">Grade 7 Information Technology & Digital Media • Term 1 Study Hub</p>
+      <p>Study hard, read questions carefully, and do your best!</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT LOGIC (FLASHCARDS & PRACTICE TEST)             -->
+  <!-- ========================================================= -->
+  <script>
+    // -----------------------------------------------------------
+    // 1. TAB NAVIGATION LOGIC
+    // -----------------------------------------------------------
+    function switchTab(tabName) {
+      // Hide all panels
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+      // Reset all nav buttons
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-teal-600', 'text-white', 'shadow');
+        btn.classList.add('text-slate-300');
+      });
+
+      // Show active panel
+      document.getElementById(`panel-${tabName}`).classList.remove('hidden');
+      // Highlight active button
+      const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+      activeBtn.classList.remove('text-slate-300');
+      activeBtn.classList.add('bg-teal-600', 'text-white', 'shadow');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -----------------------------------------------------------
+    // 2. FLASHCARDS DATA & ENGINE (18 Grade-Appropriate Terms)
+    // -----------------------------------------------------------
+    const allFlashcards = [
+      {
+        id: 1,
+        category: "Tech Basics",
+        term: "Hardware",
+        definition: "The physical parts of a computer or phone that you can see and touch with your hands.",
+        example: "A keyboard, mouse, monitor screen, or printer."
+      },
+      {
+        id: 2,
+        category: "Tech Basics",
+        term: "Software",
+        definition: "The apps, games, and programs inside a device that tell the hardware what to do.",
+        example: "Microsoft Word, Google Chrome, CapCut, or a video game."
+      },
+      {
+        id: 3,
+        category: "Tech Basics",
+        term: "Cloud Computing",
+        definition: "Saving and opening your files or programs over the internet instead of just one computer's hard drive.",
+        example: "Saving your assignment on Google Drive at school and opening it on a tablet at home."
+      },
+      {
+        id: 4,
+        category: "Tech Basics",
+        term: "Network",
+        definition: "Two or more devices connected together (with cables or Wi-Fi) so they can share internet, files, or printers.",
+        example: "All the computers in our school computer lab connected to one printer."
+      },
+      {
+        id: 5,
+        category: "Tech Basics",
+        term: "Bandwidth",
+        definition: "How much data can travel across an internet connection at one time—like how many lanes a highway has.",
+        example: "High bandwidth lets an entire class stream videos smoothly without buffering."
+      },
+      {
+        id: 6,
+        category: "Tech Basics",
+        term: "Hardware Specs",
+        definition: "The power and size of a computer's inside parts, such as its processor speed and RAM memory.",
+        example: "Checking a laptop's specs to make sure it has enough RAM to edit video smoothly."
+      },
+      {
+        id: 7,
+        category: "Tech Basics",
+        term: "Cybersecurity",
+        definition: "The digital locks, strong passwords, and safety rules used to protect devices and private data from hackers.",
+        example: "Using a strong password and antivirus software on a school computer."
+      },
+      {
+        id: 8,
+        category: "Jobs & Tools",
+        term: "EHR (Electronic Health Records)",
+        definition: "Digital medical software used in Healthcare so doctors and nurses can look up patient records instantly.",
+        example: "An emergency room doctor checking a patient's allergies on a tablet in seconds."
+      },
+      {
+        id: 9,
+        category: "Jobs & Tools",
+        term: "LMS (Learning Management System)",
+        definition: "Online school software used in Education to post classwork, collect homework, and share grades.",
+        example: "Turning in your digital report on Google Classroom from home."
+      },
+      {
+        id: 10,
+        category: "Jobs & Tools",
+        term: "CAD (Computer-Aided Design)",
+        definition: "Special software used in Engineering and architecture to draw accurate 2D and 3D building plans on a screen.",
+        example: "An architect designing a new house blueprint on a computer instead of paper."
+      },
+      {
+        id: 11,
+        category: "Jobs & Tools",
+        term: "Cost-Effectiveness (ROI)",
+        definition: "When a digital tool is worth its price because it saves lots of time, reduces paper waste, and prevents mistakes.",
+        example: "Paying for accounting software because it saves a worker 10 hours every week."
+      },
+      {
+        id: 12,
+        category: "Online Safety",
+        term: "Digital Footprint",
+        definition: "The permanent trail of posts, photos, comments, and clicks you leave behind whenever you use the internet.",
+        example: "A comment you post on a public video that people can still find years later."
+      },
+      {
+        id: 13,
+        category: "Online Safety",
+        term: "Phishing",
+        definition: "Fake emails, texts, or links pretending to be a trusted company to trick you into giving away passwords.",
+        example: "An email claiming you won free game coins if you type in your account password."
+      },
+      {
+        id: 14,
+        category: "Online Safety",
+        term: "Plagiarism",
+        definition: "Copying someone else's words, schoolwork, or ideas from the internet and claiming they are your own.",
+        example: "Copy-pasting a paragraph from a website into your report without naming the source."
+      },
+      {
+        id: 15,
+        category: "Online Safety",
+        term: "Software Piracy",
+        definition: "Illegally copying, sharing, or downloading paid software, movies, or games for free without permission.",
+        example: "Downloading a cracked version of a paid video editor from a shady website."
+      },
+      {
+        id: 16,
+        category: "Video & Reports",
+        term: "Trimming (Video Editing)",
+        definition: "Cutting off the beginning or end of a video clip to remove awkward pauses, silence, or mistakes.",
+        example: "Cutting out the first 3 seconds where someone says 'Are we recording yet?'"
+      },
+      {
+        id: 17,
+        category: "Video & Reports",
+        term: "Cropping (Video Editing)",
+        definition: "Adjusting the outer edges of a video frame to zoom in and cut out distracting background objects.",
+        example: "Zooming in slightly so the person being interviewed is centered on screen."
+      },
+      {
+        id: 18,
+        category: "Video & Reports",
+        term: "Qualitative Data",
+        definition: "Information made up of people's spoken opinions, feelings, and interview answers rather than numbers.",
+        example: "Writing down what 5 people said when you asked them what digital literacy means."
+      }
+    ];
+
+    let filteredDeck = [...allFlashcards];
+    let currentCardIndex = 0;
+    let isFlipped = false;
+    const masteredIds = new Set();
+
+    function renderFlashcard() {
+      const card = filteredDeck[currentCardIndex];
+      const inner = document.getElementById('flashcard-inner');
+
+      // Reset flip state instantly when changing cards
+      isFlipped = false;
+      inner.classList.remove('rotate-y-180');
+
+      // Update text content
+      document.getElementById('fc-front-badge').textContent = card.category;
+      document.getElementById('fc-term').textContent = card.term;
+      document.getElementById('fc-back-term').textContent = card.term;
+      document.getElementById('fc-definition').textContent = card.definition;
+      document.getElementById('fc-example').textContent = card.example;
+
+      // Update counters & progress bar
+      document.getElementById('card-counter').textContent = `Card ${currentCardIndex + 1} of ${filteredDeck.length}`;
+      document.getElementById('card-category-label').textContent = `Category: ${card.category}`;
+      const percent = ((currentCardIndex + 1) / filteredDeck.length) * 100;
+      document.getElementById('card-progress-bar').style.width = `${percent}%`;
+
+      // Update Mastered styling
+      const isMastered = masteredIds.has(card.id);
+      const pill = document.getElementById('fc-mastered-pill');
+      const toggleBtn = document.getElementById('btn-master-toggle');
+
+      if (isMastered) {
+        pill.classList.remove('hidden');
+        toggleBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Mastered!';
+        toggleBtn.classList.remove('bg-emerald-50', 'text-emerald-800');
+        toggleBtn.classList.add('bg-emerald-600', 'text-white');
+      } else {
+        pill.classList.add('hidden');
+        toggleBtn.innerHTML = '<i class="fa-regular fa-circle-check"></i> Mark as Mastered';
+        toggleBtn.classList.remove('bg-emerald-600', 'text-white');
+        toggleBtn.classList.add('bg-emerald-50', 'text-emerald-800');
+      }
+
+      document.getElementById('mastered-count').textContent = masteredIds.size;
+      document.getElementById('total-cards-badge').textContent = allFlashcards.length;
+    }
+
+    function flipCard() {
+      isFlipped = !isFlipped;
+      const inner = document.getElementById('flashcard-inner');
+      if (isFlipped) {
+        inner.classList.add('rotate-y-180');
+      } else {
+        inner.classList.remove('rotate-y-180');
+      }
+    }
+
+    function nextCard() {
+      currentCardIndex = (currentCardIndex + 1) % filteredDeck.length;
+      renderFlashcard();
+    }
+
+    function prevCard() {
+      currentCardIndex = (currentCardIndex - 1 + filteredDeck.length) % filteredDeck.length;
+      renderFlashcard();
+    }
+
+    function toggleMastered() {
+      const card = filteredDeck[currentCardIndex];
+      if (masteredIds.has(card.id)) {
+        masteredIds.delete(card.id);
+      } else {
+        masteredIds.add(card.id);
+      }
+      renderFlashcard();
+    }
+
+    function filterFlashcards(category) {
+      // Update chip buttons
+      document.querySelectorAll('.filter-chip').forEach(btn => {
+        if (btn.textContent.trim() === category) {
+          btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+          btn.classList.add('bg-teal-600', 'text-white', 'shadow-sm');
+        } else {
+          btn.classList.remove('bg-teal-600', 'text-white', 'shadow-sm');
+          btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+        }
+      });
+
+      if (category === 'All') {
+        filteredDeck = [...allFlashcards];
+      } else {
+        filteredDeck = allFlashcards.filter(c => c.category === category);
+      }
+      currentCardIndex = 0;
+      renderFlashcard();
+    }
+
+    function shuffleFlashcards() {
+      for (let i = filteredDeck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filteredDeck[i], filteredDeck[j]] = [filteredDeck[j], filteredDeck[i]];
+      }
+      currentCardIndex = 0;
+      renderFlashcard();
+    }
+
+    // -----------------------------------------------------------
+    // 3. PRACTICE TEST DATA & SELF-GRADING ENGINE (15 Questions)
+    // -----------------------------------------------------------
+    const quizBank = [
+      {
+        unit: "Unit 1: Tech Basics",
+        question: "Which of the following is an example of computer HARDWARE?",
+        options: [
+          "Microsoft Word",
+          "A computer keyboard and mouse",
+          "Google Chrome web browser",
+          "A video editing app"
+        ],
+        correctIndex: 1,
+        explanation: "Hardware means the physical parts of a computer that you can actually touch with your hands, like a keyboard or mouse."
+      },
+      {
+        unit: "Unit 1: Tech Basics",
+        question: "Maya saves her school project on Google Drive at school so she can open and finish it on her home computer. What technology is she using?",
+        options: [
+          "Cloud Computing",
+          "Software Piracy",
+          "Video Cropping",
+          "Phishing"
+        ],
+        correctIndex: 0,
+        explanation: "Cloud computing lets you save and open files over the internet from different devices instead of storing them on just one computer."
+      },
+      {
+        unit: "Unit 1: Tech Basics",
+        question: "Why is internet BANDWIDTH often compared to a highway?",
+        options: [
+          "Because it stores passwords safely",
+          "Because a wider highway lets more data travel faster without slowing down",
+          "Because it cleans dust off the monitor",
+          "Because it prints paper documents"
+        ],
+        correctIndex: 1,
+        explanation: "Higher bandwidth means more data can move across the internet at once, just like a multi-lane highway lets more cars drive smoothly."
+      },
+      {
+        unit: "Unit 1: Tech Basics",
+        question: "When several computers in a school lab are connected together so they can all use the same printer, they form a:",
+        options: [
+          "Digital Footprint",
+          "Network",
+          "Timeline",
+          "Misconception"
+        ],
+        correctIndex: 1,
+        explanation: "A network connects two or more devices together so they can share resources like printers, files, and internet access."
+      },
+      {
+        unit: "Unit 2: Tools at Work",
+        question: "An architect wants to draw 3D building plans on a computer instead of paper. Which tool is made for the Engineering industry?",
+        options: [
+          "EHR (Electronic Health Records)",
+          "CAD (Computer-Aided Design) software",
+          "LMS (Learning Management System)",
+          "Social Media Filters"
+        ],
+        correctIndex: 1,
+        explanation: "CAD (Computer-Aided Design) software helps engineers and architects create and edit building blueprints on a screen."
+      },
+      {
+        unit: "Unit 2: Tools at Work",
+        question: "How does an Electronic Health Record (EHR) system help doctors in a hospital?",
+        options: [
+          "It lets them edit promotional videos",
+          "It lets them look up a patient's medical history and allergies in seconds",
+          "It helps them design 3D bridges",
+          "It calculates student test scores"
+        ],
+        correctIndex: 1,
+        explanation: "EHR systems store patient medical records digitally so doctors can view important health info fast."
+      },
+      {
+        unit: "Unit 2: Tools at Work",
+        question: "A small business pays $300 a year for accounting software, and it saves the workers 8 hours of paperwork every week. Why is this tool 'cost-effective'?",
+        options: [
+          "Because the software was completely free",
+          "Because the time and mistakes it saves are worth more than its price",
+          "Because it uses lots of paper",
+          "Because it never needs electricity"
+        ],
+        correctIndex: 1,
+        explanation: "Cost-effective means a tool gives great value for its price by saving time, reducing paper waste, and preventing errors."
+      },
+      {
+        unit: "Unit 2: Tools at Work",
+        question: "Teachers use a Learning Management System (LMS) like Google Classroom mainly to:",
+        options: [
+          "Post assignments, collect homework, and share grades online",
+          "Check bank account balances",
+          "Draw 3D engine parts",
+          "Scan hospital X-rays"
+        ],
+        correctIndex: 0,
+        explanation: "An LMS is an education platform that organizes class assignments, submissions, and grades in one place."
+      },
+      {
+        unit: "Unit 3: Online Safety",
+        question: "You receive a text message saying: 'URGENT! Your bank account will close in 1 hour. Click here and enter your password now!' What is this an example of?",
+        options: [
+          "Cloud backup",
+          "Phishing",
+          "Hardware specs",
+          "Exporting"
+        ],
+        correctIndex: 1,
+        explanation: "Phishing uses fake urgent messages and links to trick people into giving away private passwords or account details."
+      },
+      {
+        unit: "Unit 3: Online Safety",
+        question: "True or False: Once you delete a mean comment or embarrassing photo online, it is guaranteed to disappear forever.",
+        options: [
+          "True — deleting removes it from every computer in the world",
+          "False — people may have already saved or screenshotted your digital footprint"
+        ],
+        correctIndex: 1,
+        explanation: "Your digital footprint is hard to erase because others can save, copy, or screenshot things before you delete them."
+      },
+      {
+        unit: "Unit 3: Online Safety",
+        question: "Copying three paragraphs from a website and pasting them into your school report as if you wrote them yourself is called:",
+        options: [
+          "Plagiarism",
+          "Bandwidth",
+          "Trimming",
+          "Networking"
+        ],
+        correctIndex: 0,
+        explanation: "Plagiarism is taking someone else's words or work without giving them credit."
+      },
+      {
+        unit: "Unit 3: Online Safety",
+        question: "Downloading a paid video game for free from an illegal website is known as:",
+        options: [
+          "Cybersecurity",
+          "Software Piracy",
+          "Qualitative Data",
+          "Cloud Computing"
+        ],
+        correctIndex: 1,
+        explanation: "Software piracy is illegally copying or downloading paid software, games, or movies without permission."
+      },
+      {
+        unit: "Unit 4: Videos & Reports",
+        question: "When filming an interview for a school video report, which setup gives the best quality?",
+        options: [
+          "Hold the phone vertically in a noisy hallway with a bright window behind the speaker",
+          "Hold the phone sideways (landscape) in a quiet spot with good light in front of the speaker",
+          "Stand 20 feet away so the microphone barely picks up their voice",
+          "Shake the camera while walking around"
+        ],
+        correctIndex: 1,
+        explanation: "Holding the camera sideways in a quiet area with light facing the subject keeps the video clear, steady, and easy to hear."
+      },
+      {
+        unit: "Unit 4: Videos & Reports",
+        question: "During video editing, what does 'TRIMMING' a clip mean?",
+        options: [
+          "Cutting off awkward pauses or mistakes at the beginning or end of a clip",
+          "Changing the video volume to zero",
+          "Deleting the entire project",
+          "Turning a video into a printed book"
+        ],
+        correctIndex: 0,
+        explanation: "Trimming removes extra silence or mistakes at the start or end of a video clip so it plays smoothly."
+      },
+      {
+        unit: "Unit 4: Videos & Reports",
+        question: "In your interview report, one person falsely claimed that 'digital literacy just means playing video games.' In your report, this false belief is called a:",
+        options: [
+          "Hardware Spec",
+          "Misconception",
+          "Timeline",
+          "Network"
+        ],
+        correctIndex: 1,
+        explanation: "A misconception is a common myth or false belief that your report helps correct using facts."
+      }
+    ];
+
+    let activeQuestions = [];
+    let userAnswers = {};
+    let isQuizSubmitted = false;
+
+    function initQuiz() {
+      activeQuestions = quizBank.map((q, idx) => ({ ...q, uid: idx }));
+      userAnswers = {};
+      isQuizSubmitted = false;
+      renderQuiz();
+    }
+
+    function resetAndShuffleQuiz() {
+      // Shuffle questions
+      const copy = [...quizBank];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      activeQuestions = copy.map((q, idx) => ({ ...q, uid: idx }));
+      userAnswers = {};
+      isQuizSubmitted = false;
+
+      document.getElementById('quiz-result-banner').classList.add('hidden');
+      document.getElementById('quiz-warning').classList.add('hidden');
+      document.getElementById('quiz-submit-area').classList.remove('hidden');
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById('quiz-questions-container');
+      container.innerHTML = '';
+
+      activeQuestions.forEach((q, qIndex) => {
+        const selectedOption = userAnswers[qIndex];
+        const card = document.createElement('div');
+        card.id = `q-card-${qIndex}`;
+        card.className = 'bg-white rounded-2xl p-6 border border-slate-200 shadow-sm transition-all';
+
+        // Build options HTML
+        const optionsHtml = q.options.map((optText, optIdx) => {
+          let optionStyle = 'border-slate-200 hover:border-teal-500 hover:bg-slate-50 text-slate-700';
+          let iconHtml = `<span class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-xs font-bold text-slate-500 flex-shrink-0">${String.fromCharCode(65 + optIdx)}</span>`;
+
+          if (!isQuizSubmitted) {
+            if (selectedOption === optIdx) {
+              optionStyle = 'border-teal-600 bg-teal-50/80 text-navy-900 font-semibold ring-1 ring-teal-600';
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">${String.fromCharCode(65 + optIdx)}</span>`;
+            }
+          } else {
+            // Post-submission grading styles
+            if (optIdx === q.correctIndex) {
+              optionStyle = 'border-emerald-500 bg-emerald-50 text-emerald-950 font-bold';
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-check"></i></span>`;
+            } else if (selectedOption === optIdx && optIdx !== q.correctIndex) {
+              optionStyle = 'border-rose-500 bg-rose-50 text-rose-950 font-semibold';
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              optionStyle = 'border-slate-200 opacity-60 text-slate-500';
+            }
+          }
+
+          return `
+            <button type="button" ${isQuizSubmitted ? 'disabled' : ''} onclick="selectOption(${qIndex}, ${optIdx})"
+              class="w-full text-left p-3.5 rounded-xl border-2 transition flex items-center gap-3 ${optionStyle}">
+              ${iconHtml}
+              <span class="text-sm sm:text-base leading-snug">${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        // Explanation Box (Shown only after submit)
+        let explanationHtml = '';
+        if (isQuizSubmitted) {
+          const isRight = selectedOption === q.correctIndex;
+          explanationHtml = `
+            <div class="mt-4 p-4 rounded-xl ${isRight ? 'bg-emerald-50/90 border border-emerald-200 text-emerald-900' : 'bg-amber-50 border border-amber-200 text-amber-950'} text-sm flex items-start gap-2.5">
+              <i class="fa-solid ${isRight ? 'fa-circle-check text-emerald-600' : 'fa-lightbulb text-amber-500'} mt-0.5 text-base"></i>
+              <div>
+                <strong>${isRight ? 'Correct!' : 'Review Tip:'}</strong> ${q.explanation}
+              </div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">${q.unit}</span>
+            <span class="text-xs font-bold text-slate-400">Question ${qIndex + 1} of ${activeQuestions.length}</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-navy-900 mb-4 leading-snug">${q.question}</h3>
+          <div class="space-y-2.5">
+            ${optionsHtml}
+          </div>
+          ${explanationHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      document.getElementById('quiz-answered-count').textContent = Object.keys(userAnswers).length;
+    }
+
+    function selectOption(qIndex, optIdx) {
+      if (isQuizSubmitted) return;
+      userAnswers[qIndex] = optIdx;
+      document.getElementById('quiz-warning').classList.add('hidden');
+      renderQuiz();
+    }
+
+    function submitQuiz() {
+      const answeredCount = Object.keys(userAnswers).length;
+      if (answeredCount < activeQuestions.length) {
+        const missing = activeQuestions.length - answeredCount;
+        const warnBox = document.getElementById('quiz-warning');
+        document.getElementById('quiz-warning-text').textContent = `You still have ${missing} unanswered question${missing > 1 ? 's' : ''}! Answer every question before checking your score.`;
+        warnBox.classList.remove('hidden');
+        warnBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      isQuizSubmitted = true;
+      let correctCount = 0;
+      activeQuestions.forEach((q, idx) => {
+        if (userAnswers[idx] === q.correctIndex) {
+          correctCount++;
+        }
+      });
+
+      const percent = Math.round((correctCount / activeQuestions.length) * 100);
+      let title = "Keep Practicing — You've Got This!";
+      let msg = `You got ${correctCount} out of ${activeQuestions.length} right. Read the review tips below, flip through the flashcards, and try again!`;
+
+      if (percent >= 85) {
+        title = "Outstanding Work, Tech Star! 🌟";
+        msg = `You scored ${correctCount} out of ${activeQuestions.length}! You are ready to crush next week's Term 1 test.`;
+      } else if (percent >= 70) {
+        title = "Great Job! Almost Exam Ready! 👏";
+        msg = `You scored ${correctCount} out of ${activeQuestions.length}. Check the yellow review tips below to turn those missed questions into 100%!`;
+      }
+
+      document.getElementById('quiz-result-title').textContent = title;
+      document.getElementById('quiz-result-message').textContent = msg;
+      document.getElementById('quiz-score-percent').textContent = `${percent}%`;
+      document.getElementById('quiz-score-fraction').textContent = `${correctCount} / ${activeQuestions.length} Correct`;
+
+      document.getElementById('quiz-result-banner').classList.remove('hidden');
+      document.getElementById('quiz-submit-area').classList.add('hidden');
+
+      renderQuiz();
+      document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Initialize everything on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderFlashcard();
+      initQuiz();
+    });
+  </script>
+</body>
+</html>
